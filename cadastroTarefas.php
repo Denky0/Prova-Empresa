@@ -24,7 +24,7 @@
                         <a class="nav-link text-light" href="cadastroTarefas.php">Cadastro de Tarefas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="#">Gerenciamentos de Tarefa</a>
+                        <a class="nav-link text-light" href="gerenciar.php">Gerenciamentos de Tarefa</a>
                     </li>
                 </ul>
             </div>
