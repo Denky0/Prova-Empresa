@@ -7,7 +7,7 @@
     $setor = $_GET['setor'];
     $prioridade = $_GET['prioridade'];
 
-    $insert = "INSERT INTO tarefa VALUES ('$usuario', '$descricao', '$setor', '$prioridade')";
+    $insert = "INSERT INTO tarefa (usuario, descricao, setor, prioridade) VALUES ('$usuario', '$descricao', '$setor', '$prioridade')";
 
     $conexao->query($insert);
 
