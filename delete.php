@@ -4,7 +4,7 @@
 
     $id_tarefa = $_GET['id_tarefa'];
 
-    $conexao->query("UPDATE tarefa SET `status` = [fazendo] WHERE a fazer");
+    $conexao->query("DELETE FROM tarefa WHERE id_tarefa = $id_tarefa");
 
     header('location:gerenciar.php');
 

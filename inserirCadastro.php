@@ -7,8 +7,14 @@
 
     $insert = "INSERT INTO usuario VALUES ('', '$nome', '$email')";
 
-    $conexao->query($insert);
+    $result = $conexao->query($insert);
 
-    echo "Usuário cadastrado com sucesso! <a href='index.php'><button>Voltar</button></a>";
+    if ($result == true) {
+        $msg = "Cadastrado com Sucesso!";
+    } else {
+        $msg = "Erro ao Cadastrar Usuário!";
+    }
+
+    header('location:index.php?msg=$msg');
 
 ?>

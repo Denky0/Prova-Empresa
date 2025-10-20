@@ -30,6 +30,19 @@
             </div>
         </div>
     </nav>
+
+    <?php 
+    
+        if (isset($_GET['msg'])) {
+            echo "
+            <div class='alert alert-success alert-dismissible fade show' role='alert'>
+                Cadastrado com Sucesso!
+            <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+            </div>";
+        } 
+    
+    ?>
+
     <form action="inserirCadastro.php" class="container mt-5">
         <div class="my-3">
             <h1>Cadastro de Usuários</h1>

@@ -9,8 +9,14 @@
 
     $insert = "INSERT INTO tarefa (usuario, descricao, setor, prioridade) VALUES ('$usuario', '$descricao', '$setor', '$prioridade')";
 
-    $conexao->query($insert);
+    $result = $conexao->query($insert);
 
-    header("Location: cadastroTarefas.php");
+    if ($result == true) {
+        $msg = "Tarefa Cadastrada com Sucesso";
+    } else {
+        $msg = "Erro ao Cadastrar Tarefa";
+    }
+
+    header('location: cadastroTarefas.php?msg=$msg');
 
 ?>
