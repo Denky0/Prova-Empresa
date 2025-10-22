@@ -35,11 +35,12 @@
         <div class="row align-items-start my-3">
             <div class="col">
                 <h5>A Fazer</h5>
+
                 <?php
-                    include 'conexao.php';
-                    $tarefas = $conexao->query('SELECT * FROM tarefa WHERE status = \'a fazer\'');
-                    while ($tarefa = $tarefas->fetch_object())
-                        echo "<div class='card m-2' style='width: 18rem;'>
+                include 'conexao.php';
+                $tarefas = $conexao->query('SELECT * FROM tarefa WHERE status = \'a fazer\'');
+                while ($tarefa = $tarefas->fetch_object())
+                    echo "<div class='card m-2' style='width: 18rem;'>
                                     <div class='card-body'>
                                         <p class='card-text'>Descrição: $tarefa->descricao</p>
                                         <p class='card-text'>Setor: $tarefa->setor</p>
@@ -50,9 +51,9 @@
                                             <a href='delete.php?id_tarefa=$tarefa->id_tarefa' class='btn btn-primary btn-sm'>Excluir</a>
                                         </div>
                                         <form action='alterarStatus.php' class='my-3'>
-                                            <input hidden value='$tarefa->id_tarefa'>
+                                            <input hidden name='id_tarefa' value='$tarefa->id_tarefa'>
                                             <select name='prioridade' id=''>
-                                                <option value='a fazer'>A Fazer</option>
+                                                <option value='$tarefa->status'>$tarefa->status</option>
                                                 <option value='fazendo'>Fazendo</option>
                                                 <option value='feito'>Feito</option>
                                             </select>
@@ -65,9 +66,64 @@
             </div>
             <div class="col">
                 <h5>Fazendo</h5>
+
+                <?php
+                include 'conexao.php';
+                $tarefas = $conexao->query('SELECT * FROM tarefa WHERE status = \'fazendo\'');
+                while ($tarefa = $tarefas->fetch_object())
+                    echo "<div class='card m-2' style='width: 18rem;'>
+                                    <div class='card-body'>
+                                        <p class='card-text'>Descrição: $tarefa->descricao</p>
+                                        <p class='card-text'>Setor: $tarefa->setor</p>
+                                        <p class='card-text'>Prioridade: $tarefa->prioridade</p>
+                                        <p class='card-text'>Vinculado a: $tarefa->usuario</p>
+                                        <div>
+                                            <input type='submit' class='btn btn-primary btn-sm' value='Editar'>
+                                            <a href='delete.php?id_tarefa=$tarefa->id_tarefa' class='btn btn-primary btn-sm'>Excluir</a>
+                                        </div>
+                                        <form action='alterarStatus.php' class='my-3'>
+                                            <input hidden name='id_tarefa' value='$tarefa->id_tarefa'>
+                                            <select name='prioridade' id=''>
+                                                <option value='$tarefa->status'>$tarefa->status</option>
+                                                <option value='a fazer'>A Fazer</option>
+                                                <option value='feito'>Feito</option>
+                                            </select>
+                                            <button class='btn btn-sm btn-primary' type='submit'>Alterar Status</button>
+                                        </form>
+                                    </div>
+                            </div>";
+                ?>
+
             </div>
             <div class="col">
                 <h5>Feito</h5>
+
+                <?php
+                include 'conexao.php';
+                $tarefas = $conexao->query('SELECT * FROM tarefa WHERE status = \'feito\'');
+                while ($tarefa = $tarefas->fetch_object())
+                    echo "<div class='card m-2' style='width: 18rem;'>
+                                    <div class='card-body'>
+                                        <p class='card-text'>Descrição: $tarefa->descricao</p>
+                                        <p class='card-text'>Setor: $tarefa->setor</p>
+                                        <p class='card-text'>Prioridade: $tarefa->prioridade</p>
+                                        <p class='card-text'>Vinculado a: $tarefa->usuario</p>
+                                        <div>
+                                            <input type='submit' class='btn btn-primary btn-sm' value='Editar'>
+                                            <a href='delete.php?id_tarefa=$tarefa->id_tarefa' class='btn btn-primary btn-sm'>Excluir</a>
+                                        </div>
+                                        <form action='alterarStatus.php' class='my-3'>
+                                            <input hidden name='id_tarefa' value='$tarefa->id_tarefa'>
+                                            <select name='prioridade' id=''>
+                                                <option value='$tarefa->status'>$tarefa->status</option>
+                                                <option value='a fazer'>A Fazer</option>
+                                                <option value='fazendo'>Fazendo</option>
+                                            </select>
+                                            <button class='btn btn-sm btn-primary' type='submit'>Alterar Status</button>
+                                        </form>
+                                    </div>
+                            </div>";
+                ?>
 
             </div>
         </div>
